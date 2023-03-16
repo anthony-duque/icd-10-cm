@@ -1,0 +1,45 @@
+<html ng-app="HelloWorldModule">
+<head>
+    <script src="./scripts/angular.js"></script>
+    <!--script src="./scripts/angular.min.js"></script -->
+    <script src="./scripts/HelloWorld.js"></script>
+    <link rel="stylesheet" href="./styles/HelloWorld.css"/>
+</head>
+<body ng-controller="HelloWorldController">
+    <div>
+        <table>
+        <tr>
+            <td>
+                <img ng-src="./images/logo.svg" id="faciltyLogo">
+            </td>
+            <td id="facilityName" colspan="2" align="center">
+                <div name="facilityName">Simi Valley Care Center</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Patient Name: <input type="text" value="{{ patient.firstName + ' ' + patient.lastName }}" disabled />
+            </td>
+            <td>
+                MRN : <input type="text" value="{{ patient.mrn }}" disabled />
+            </td>
+            <td>
+                DOB : <input type="text" value="{{ patient.birthDate }}" disabled />
+            </td>
+            <td>
+                Gender : <input type="text" value="{{ patient.gender }}" disabled />
+            </td>
+        </tr>
+        </table>
+    </div>
+
+    <input type="button" value="Get Codes" ng-click="GetCodes();">
+
+    <table>
+    <tr>
+        <td ng-repeat="code in codes">
+           {{ code }}
+        </td>
+   </tr>
+</body>
+</html>
