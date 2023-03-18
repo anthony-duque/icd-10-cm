@@ -3,8 +3,8 @@
 var modHelloWorld = angular.module('HelloWorldModule', []);
 
     // Controller function
-var helloWorldCtrlr = function ($scope){
-    
+var helloWorldCtrlr = function ($scope, $http){
+
     $scope.message = "Hello World!";
 
     var patient = {
@@ -16,11 +16,12 @@ var helloWorldCtrlr = function ($scope){
     };
 
     $scope.patient = patient;
-    /*    
-    var stuSrcAPI = "https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&terms=";
+
+    var stuSrcAPI = 'https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&terms=';
 
     $scope.GetCodes = function(){    // Button functionality to fetch students
 
+      //$scope.keyWord = "cancer";
         var strAPI = stuSrcAPI + $scope.keyWord;
 
         return $http.get(strAPI)
@@ -28,8 +29,8 @@ var helloWorldCtrlr = function ($scope){
                         $scope.codes = '';
                         $scope.codes = response.data;
                 });
-        }  
-*/
+        }
+
+}
     // Register the controller function with the module
     modHelloWorld.controller("HelloWorldController", helloWorldCtrlr);
-}

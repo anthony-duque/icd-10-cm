@@ -32,13 +32,15 @@
         </tr>
         </table>
     </div>
-
-    <input type="button" value="Get Codes" ng-click="GetCodes();">
-
+    <input type="text" ng-model="keyWord">
+    <input type="button" value="Get Codes" ng-click="GetCodes();" ng-show="keyWord">
     <table>
-    <tr>
-        <td ng-repeat="code in codes">
-           {{ code }}
+    <tr ng-repeat="code in codes[3]">
+        <td>
+            {{ code[0] }}
+        </td>
+        <td>
+            {{ code[1] }}
         </td>
    </tr>
 </body>
