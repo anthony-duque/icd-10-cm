@@ -1,11 +1,13 @@
-<html>
 </<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" ng-app="patientSearchModule">
    <head>
       <meta charset="utf-8">
       <title>Patient Search Page</title>
+      <script type="text/javascript" src="./scripts/angular.min.js"></script>
+      <script type="text/javascript" src="./scripts/PatientSearch.js"></script>
    </head>
-   <body>
+   <body ng-controller="patientSearchController">
+      {{ patientCount }}
       <table align="center">
          <thead>
             <tr>
@@ -46,6 +48,16 @@
                </td>
             </tr>
          </tbody>
+      </table>
+      <br/>
+      <table align="center">
+         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+         </tr>
       </table>
    </body>
 </html>
