@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <title>Patient Search Page</title>
       <script type="text/javascript" src="./scripts/angular.min.js"></script>
+      <script type="text/javascript" src="./scripts/PatientList.js"></script>
       <script type="text/javascript" src="./scripts/PatientSearch.js"></script>
    </head>
    <body ng-controller="patientSearchController">
@@ -51,12 +52,12 @@
       </table>
       <br/>
       <table align="center">
-         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+         <tr ng-repeat="patient in patientList">
+            <td>{{ patient.MRN }}</td>
+            <td>{{ patient.FirstName }}</td>
+            <td>{{ patient.LastName }}</td>
+            <td>{{ patient.Gender }}</td>
+            <td>{{ patient.BirthDate | date: "MMMM dd, yyyy" }}</td>
          </tr>
       </table>
    </body>
