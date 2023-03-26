@@ -6,7 +6,7 @@ var modHelloWorld = angular.module('HelloWorldModule', []);
 var helloWorldCtrlr = function ($scope, $http){
 
     $scope.message = "Hello World!";
-
+    $scope.keywordsUsed = [];
     var patient = {
         mrn: "1056481663642",
         firstName : "David",
@@ -23,7 +23,7 @@ var helloWorldCtrlr = function ($scope, $http){
 
       //$scope.keyWord = "cancer";
         var strAPI = stuSrcAPI + $scope.keyWord;
-
+        $scope.keywordsUsed.push($scope.keyWord)
         return $http.get(strAPI)
                 .then(function(response){
                         $scope.codes = '';

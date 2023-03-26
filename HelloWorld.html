@@ -1,5 +1,6 @@
 <html ng-app="HelloWorldModule">
 <head>
+   <title>ICD Code Search Page</title>   
     <script src="./scripts/angular.js"></script>
     <!--script src="./scripts/angular.min.js"></script -->
     <script src="./scripts/HelloWorld.js"></script>
@@ -33,7 +34,7 @@
         </table>
     </div>
     <input type="text" ng-model="keyWord">
-    <input type="button" value="Get Codes" ng-click="GetCodes();" ng-show="keyWord">
+    <input type="button" value="Get Codes" ng-click="GetCodes();" ng-disabled="!keyWord">
     <table>
     <tr ng-repeat="code in codes[3]">
         <td>
@@ -43,5 +44,8 @@
             {{ code[1] }}
         </td>
    </tr>
+   </table>
+   <div>{{ keywordsUsed }}
+      <a href="PatientSearch.html">Patient Search</a>
 </body>
 </html>
