@@ -6,6 +6,23 @@ var patientSearchCtrlr = function($scope){
    $scope.patientCount = 15;
    $scope.patientList = patientList;
 
+   $scope.SortPatients = function(sortBy){
+
+      switch($scope.sortOrder){
+
+         case '+':
+            $scope.sortOrder = '-';
+            break;
+
+         case '-':
+         default:
+            $scope.sortOrder = '+';
+
+      } // switch()
+
+      $scope.sortField = $scope.sortOrder + sortBy;
+   }
+
       // function that looks for a value in a list
    function search(source, searchField, searchValue) {
 

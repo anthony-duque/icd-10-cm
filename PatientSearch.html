@@ -51,14 +51,26 @@
          </tbody>
       </table>
       <br/>
-      <table align="center">
-         <tr ng-repeat="patient in patientList">
+      Sort Field = {{ sortField }}
+      <table align="center" border="1" cellpadding="5">
+         <thead>
+         <tr>
+            <th ng-click="SortPatients('MRN')">MRN</th>
+            <th ng-click="SortPatients('LastName')">Last Name</th>
+            <th ng-click="SortPatients('FirstName')">First Name</th>
+            <th ng-click="SortPatients('BirthDate')">Gender</th>
+            <th ng-click="SortPatients('Gender')">DOB</th>
+         </tr>
+         </thead>
+         <tbody id="patientList">
+         <tr ng-repeat="patient in patientList | orderBy: sortField">
             <td>{{ patient.MRN }}</td>
             <td>{{ patient.FirstName }}</td>
             <td>{{ patient.LastName }}</td>
             <td>{{ patient.Gender }}</td>
             <td>{{ patient.BirthDate | date: "MMMM dd, yyyy" }}</td>
          </tr>
+         </tbody>
       </table>
    </body>
 </html>
