@@ -12,40 +12,15 @@
       <table align="center">
          <thead>
             <tr>
-               <th colspan="5" align="center" style="color:blue">
+               <th align="center" style="color:blue">
                   Patient Search
                </th>
-            </tr>
-            <tr>
-               <th>MRN</th>
-               <th>Last Name</th>
-               <th>First Name</th>
-               <th>DOB</th>
-               <th>Gender</th>
             </tr>
          </thead>
          <tbody>
             <tr>
                <td>
-                  <input type="text"></input>
-               </td>
-               <td>
-                  <input type="text"></input>
-               </td>
-               <td>
-                  <input type="text"></input>
-               </td>
-               <td>
-                  <input type="text"></input>
-               </td>
-               <td>
-                  <input type="radio" name="gender">M</input>&nbsp;
-                  <input type="radio" name="gender">F</input>
-               </td>
-            </tr>
-            <tr>
-               <td colspan="5" align="center">
-                  <input type="button" value="Search"></input>
+                  Search: <input type="text" ng-model="patient"></input>
                </td>
             </tr>
          </tbody>
@@ -63,21 +38,21 @@
             <th ng-click="SortPatients('FirstName')">
                First Name
             </th>
-            <th ng-click="SortPatients('BirthDate')">
+            <th ng-click="SortPatients('Gender')">
                Gender
             </th>
-            <th ng-click="SortPatients('Gender')">
-               DOB
+            <th ng-click="SortPatients('BirthDate')">
+               Birth Date
             </th>
          </tr>
          </thead>
          <tbody id="patientList">
-         <tr ng-repeat="patient in patientList | orderBy: sortField">
+         <tr ng-repeat="patient in patientList | orderBy: sortField | limitTo : 50 | filter : patient">
             <td>{{ patient.MRN }}</td>
             <td>{{ patient.FirstName }}</td>
             <td>{{ patient.LastName }}</td>
-            <td>{{ patient.BirthDate | date: "MMMM dd, yyyy" }}</td>
             <td>{{ patient.Gender }}</td>
+            <td>{{ patient.BirthDate | date: "MMMM dd, yyyy" }}</td>
          </tr>
          </tbody>
       </table>
