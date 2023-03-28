@@ -1,10 +1,11 @@
 <html ng-app="HelloWorldModule">
 <head>
-   <title>ICD Code Search Page</title>   
-    <script src="./scripts/angular.js"></script>
-    <!--script src="./scripts/angular.min.js"></script -->
-    <script src="./scripts/HelloWorld.js"></script>
-    <link rel="stylesheet" href="./styles/HelloWorld.css"/>
+   <title>ICD Code Search Page</title>
+   <!--script src="./scripts/angular.js"></script-->
+   <script src="./scripts/angular.min.js"></script>
+   <script src="./scripts/getCodes.js"></script>
+   <script src="./scripts/HelloWorld.js"></script>
+   <link rel="stylesheet" href="./styles/HelloWorld.css"/>
 </head>
 <body ng-controller="HelloWorldController">
     <div>
@@ -47,5 +48,21 @@
    </table>
    <div>{{ keywordsUsed }}
       <a href="PatientSearch.html">Patient Search</a>
+
+Search for: <input type="text" ng-model="keyWord">
+<table>
+   <thead>
+      <tr>
+         <th>Code</th>
+         <th>Description</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr ng-repeat="eachCode in icdCodes | filter: keyWord | limitTo: 50 ">
+         <td>{{ eachCode.code }}</td>
+         <td>{{ eachCode.desc }}</td>
+      </tr>
+   </tbody>
+</table>
 </body>
 </html>

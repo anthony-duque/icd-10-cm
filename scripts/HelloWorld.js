@@ -5,6 +5,8 @@ var modHelloWorld = angular.module('HelloWorldModule', []);
     // Controller function
 var helloWorldCtrlr = function ($scope, $http){
 
+   $scope.icdCodes = icdCodes;
+
     $scope.message = "Hello World!";
     $scope.keywordsUsed = [];
     var patient = {
