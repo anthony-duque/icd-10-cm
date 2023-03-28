@@ -6,13 +6,13 @@
       <script type="text/javascript" src="./scripts/angular.min.js"></script>
       <script type="text/javascript" src="./scripts/PatientList.js"></script>
       <script type="text/javascript" src="./scripts/PatientSearch.js"></script>
+      <link rel="stylesheet" href="./styles/HelloWorld.css">
    </head>
    <body ng-controller="patientSearchController">
-      {{ patientCount }}
       <table align="center">
          <thead>
             <tr>
-               <th colspan="5" align="center">
+               <th colspan="5" align="center" style="color:blue">
                   Patient Search
                </th>
             </tr>
@@ -51,15 +51,27 @@
          </tbody>
       </table>
       <br/>
-      Sort Field = {{ sortField }}
-      <table align="center" border="1" cellpadding="5">
+      sortClass = {{ sortClass }}<br/>
+      sortField = {{ sortField }}<br/>
+      sortOrder = {{ sortOrder }}<br/>
+      <table align="center" cellpadding="5">
          <thead>
          <tr>
-            <th ng-click="SortPatients('MRN')">MRN</th>
-            <th ng-click="SortPatients('LastName')">Last Name</th>
-            <th ng-click="SortPatients('FirstName')">First Name</th>
-            <th ng-click="SortPatients('BirthDate')">Gender</th>
-            <th ng-click="SortPatients('Gender')">DOB</th>
+            <th ng-click="SortPatients('MRN')">
+               MRN<div ng-Class="DisplayUpDownIcon('MRN')"></div>
+            </th>
+            <th ng-click="SortPatients('LastName')">
+               Last Name<div ng-Class="DisplayUpDownIcon('LastName')"></div>
+            </th>
+            <th ng-click="SortPatients('FirstName')">
+               First Name<div ng-Class="DisplayUpDownIcon('FirstName')"></div>
+            </th>
+            <th ng-click="SortPatients('BirthDate')">
+               Gender<div ng-Class="DisplayUpDownIcon('BirthDate')"></div>
+            </th>
+            <th ng-click="SortPatients('Gender')">
+               DOB<div>{{ DisplayUpDownIcon('Gender') }}</div>
+            </th>
          </tr>
          </thead>
          <tbody id="patientList">
@@ -67,8 +79,8 @@
             <td>{{ patient.MRN }}</td>
             <td>{{ patient.FirstName }}</td>
             <td>{{ patient.LastName }}</td>
-            <td>{{ patient.Gender }}</td>
             <td>{{ patient.BirthDate | date: "MMMM dd, yyyy" }}</td>
+            <td>{{ patient.Gender }}</td>
          </tr>
          </tbody>
       </table>

@@ -5,6 +5,7 @@ var patientSearchCtrlr = function($scope){
 
    $scope.patientCount = 15;
    $scope.patientList = patientList;
+   $scope.sortField = "+MRN";
 
    $scope.SortPatients = function(sortBy){
 
@@ -15,13 +16,17 @@ var patientSearchCtrlr = function($scope){
             break;
 
          case '-':
+            $scope.sortOrder = '+';
+            break;
+
          default:
             $scope.sortOrder = '+';
+            break;
 
       } // switch()
 
       $scope.sortField = $scope.sortOrder + sortBy;
-   }
+   }  // SortPatients()
 
       // function that looks for a value in a list
    function search(source, searchField, searchValue) {
