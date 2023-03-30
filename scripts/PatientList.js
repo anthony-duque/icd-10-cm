@@ -1,23 +1,23 @@
 var patientList = [
       {
-         MRN: "ABC123456789DEF",
-         FirstName: "James",
-         LastName: "Bond",
-         Gender: "Male",
-         BirthDate: new Date("10/22/1969")
+         mrn: "ABC123456789DEF",
+         firstName: "James",
+         lastName: "Bond",
+         gender: "Male",
+         birthDate: new Date("10/22/1969")
       },
       {
-         MRN: "DEF098765432GHI",
-         FirstName: "Edward",
-         LastName: "Scissorhands",
-         Gender: "Male",
-         BirthDate: new Date("01/14/1971")
+         mrn: "DEF098765432GHI",
+         firstName: "Edward",
+         lastName: "Scissorhands",
+         gender: "Male",
+         birthDate: new Date("01/14/1971")
       },
       {
-         MRN: "XYZ098765432ABC",
-         FirstName: "Jennifer",
-         LastName: "Aniston",
-         Gender: "Female",
-         BirthDate: new Date("03/15/1990")
+         mrn: "XYZ098765432ABC",
+         firstName: "Jennifer",
+         lastName: "Aniston",
+         gender: "Female",
+         birthDate: new Date("03/15/1990")
       }
 ];
