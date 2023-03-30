@@ -1,14 +1,13 @@
 
     // Create the module
-var modHelloWorld = angular.module('HelloWorldModule', []);
+var PatientCodingModule = angular.module('PatientCodingModule', []);
 
     // Controller function
-var helloWorldCtrlr = function ($scope, $http){
+var PatientCodingController = function ($scope, $http){
 
-   $scope.icdCodes = icdCodes;
+   $scope.icdCodes = icdCodes;         // json is created in getCodes.js
 
-    $scope.message = "Hello World!";
-    $scope.keywordsUsed = [];
+   $scope.keywordsUsed = [];
     var patient = {
         mrn: "1056481663642",
         firstName : "David",
@@ -35,4 +34,4 @@ var helloWorldCtrlr = function ($scope, $http){
 
 }
     // Register the controller function with the module
-    modHelloWorld.controller("HelloWorldController", helloWorldCtrlr);
+    PatientCodingModule.controller("PatientCodingController", PatientCodingController);
