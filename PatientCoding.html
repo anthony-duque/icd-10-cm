@@ -8,34 +8,35 @@
    <link rel="stylesheet" href="./styles/PatientCoding.css"/>
 </head>
 <body ng-controller="PatientCodingController">
-    <div>
-        <table>
-        <tr>
-            <td>
-                <img ng-src="./images/logo.svg" id="faciltyLogo">
-            </td>
-            <td id="facilityName" colspan="2" align="center">
-                <div name="facilityName">Simi Valley Care Center</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Patient Name: <input type="text" value="{{ patient.firstName + ' ' + patient.lastName }}" disabled />
-            </td>
-            <td>
-                MRN : <input type="text" value="{{ patient.mrn }}" disabled />
-            </td>
-            <td>
-                DOB : <input type="text" value="{{ patient.birthDate }}" disabled />
-            </td>
-            <td>
-                Gender : <input type="text" value="{{ patient.gender }}" disabled />
-            </td>
-        </tr>
-        </table>
-    </div>
-    <input type="text" ng-model="keyWord">
-    <input type="button" value="Get Codes" ng-click="GetCodes();" ng-disabled="!keyWord">
+   <table align="center" width="100%">
+   <tr>
+       <td align="left">
+           <img ng-src="./images/logo.svg" id="faciltyLogo">
+       </td>
+       <td id="facilityName" align="left">
+           <div name="facilityName">Simi Healthcare Center</div>
+       </td>
+   </tr>
+   </table>
+   <include src="./Header.html"></include>
+   <table align="center" border=0>
+     <tr>
+         <td>
+             Patient Name: <input type="text" value="{{ patient.firstName + ' ' + patient.lastName }}" disabled />
+         </td>
+         <td>
+             MRN : <input type="text" value="{{ patient.mrn }}" disabled />
+         </td>
+         <td>
+             DOB : <input type="text" value="{{ patient.birthDate }}" disabled />
+         </td>
+         <td>
+             Gender : <input type="text" value="{{ patient.gender }}" disabled />
+         </td>
+     </tr>
+     </table>
+    <!--input type="text" ng-model="keyWord">
+    <input type="button" value="Get Codes" ng-click="GetCodes();" ng-disabled="!keyWord"-->
     <table>
     <tr ng-repeat="code in codes[3]">
         <td>
