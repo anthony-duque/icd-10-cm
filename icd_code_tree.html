@@ -1,0 +1,19 @@
+<html ng-app="ICDcodeTreeModule">
+<head >
+   <script src="./scripts/angular.js"></script>
+   <script src="./scripts/icd_10_codes.js"></script>
+   <script src="./scripts/icd_code_tree.js"></script>
+</head>
+<body ng-controller="ICDcodeTreeController">
+      <ul>
+         <li ng-repeat="eachCode in icd_codes">
+            {{ eachCode.name }}
+            <ul>
+               <li ng-repeat="eachChild in eachCode.children">
+                  {{ eachChild.name }}
+               </li>
+            </ul>
+         </li>
+      </ul>
+</body>
+</html>
