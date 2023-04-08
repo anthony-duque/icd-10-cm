@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
    class ICD_Record{
                            //  Record position
@@ -18,12 +21,13 @@
 
       public function print(){
          echo("$this->order_no - $this->code - $this->header - $this->short_desc - $this->long_desc<br>");
+         //echo("$this->order_no + <br>");
       }
-   }  // Product{}
+   }  // ICD_Record{}
 
    $file = fopen('./files/icd10cm-order-2023.txt', 'r');
 
-   $icd_codes[] = array();
+   $icd_records = array();
 
    while ($line = fgets($file)){
 
@@ -58,11 +62,16 @@
       $icd_LongDesc = substr($line, $strStart, $strLength);
       $icd_LongDesc = trim($icd_LongDesc);
 
-      $icd_Record = new ICD_Record($icd_OrderNo, $icd_Code, $icd_header, $icd_ShortDesc, $icd_LongDesc);
-      $icd_Record->print();
+      $icd_Rec = new ICD_Record($icd_OrderNo, $icd_Code, $icd_header, $icd_ShortDesc, $icd_LongDesc);
+      $icd_records[] = $icd_Rec;
 
    }
 
    fclose($file);
-      echo("reached here");
+
+   foreach($icd_records as $icd_rec){
+      //echo($icd_rec->order_no . "<br>");
+      $icd_rec->print();
+   }
+
 ?>
