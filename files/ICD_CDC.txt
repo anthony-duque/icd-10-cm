@@ -1,0 +1,5 @@
+This is a sample file to test PHP to read the ICD codes from CDC.
+
+What is up with this?
+
+It would have been easier if we had MS-SQL SSIS.

@@ -42,4 +42,16 @@ BEGIN
 	ADD CONSTRAINT FK_tblFacilityPatient_patientID
 	FOREIGN KEY (patientID) REFERENCES tblPatient(id)
 	GO;
+
+CREATE TABLE ICD_DB.dbo.CDC_ICD_CM_Dump (
+	order_no int NOT NULL,
+	code varchar(10) NOT NULL,
+	header int NOT NULL,
+	short_desc varchar(75) NOT NULL,
+	long_desc varchar(100) NULL
+);
+EXEC ICD_DB.sys.sp_addextendedproperty 'MS_Description', N'A table where the values from icdxxcm-order-2023.txt is dumped.', 'schema', N'dbo', 'table', N'CDC_ICD_CM_Dump';
+EXEC ICD_DB.sys.sp_addextendedproperty 'MS_Description', N'Would receive characters 1-5 from the record.', 'schema', N'dbo', 'table', N'CDC_ICD_CM_Dump', 'column', N'order_no';
+	GO;
+
 END
