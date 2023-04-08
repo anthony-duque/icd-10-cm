@@ -15,7 +15,4 @@ if($result === FALSE){
   echo "Submission successful!";
 }
 
-sqlsrv_free_stmt($result);
-sqlsrv_close($conn);
-
 ?>

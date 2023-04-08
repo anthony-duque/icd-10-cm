@@ -1,6 +1,5 @@
 <?php
 
-echo("here");
 $serverName = "localhost";
 $connectOptions = array(
     "database"  => "ICD_DB",
@@ -34,7 +33,5 @@ function formatErrors($errors)
         echo "Message: ". $error['message'] . "<br/>";
     }
 }
-
-require('db_write.php');
 
 ?>

@@ -23,9 +23,35 @@ error_reporting(E_ALL);
          echo("$this->order_no - $this->code - $this->header - $this->short_desc - $this->long_desc<br>");
          //echo("$this->order_no + <br>");
       }
+
+      public function writeToDB($dbConn){
+
+         $this->short_desc = str_replace("'", "''", $this->short_desc);
+         $this->long_desc = str_replace("'", "''", $this->long_desc);
+
+         echo("Processing $this->code<br>");
+//         $tsql = "INSERT INTO CDC_ICD_CM_Dump (order_no, code, header, short_desc, long_desc) " .
+         $tsql = "INSERT INTO CDC_ICD_CM_Dump " .
+                  "VALUES ($this->order_no, '$this->code', $this->header, '$this->short_desc', '$this->long_desc')";
+         //echo("$tsql <br>");
+
+         // Executes the Query
+         $result = sqlsrv_query($dbConn, $tsql);
+         //$result = TRUE;
+         if($result === FALSE){
+           die( print_r(sqlsrv_errors(), TRUE));
+         } else {
+           //echo "Submission successful!";
+           sqlsrv_free_stmt($result);
+         }
+
+      }
    }  // ICD_Record{}
 
-   $file = fopen('./files/icd10cm-order-2023.txt', 'r');
+   $fileName = './files/icd10cm-order-2023.txt';
+
+   $file = fopen($fileName, 'r');
+   echo("Processing $fileName");
 
    $icd_records = array();
 
@@ -69,9 +95,25 @@ error_reporting(E_ALL);
 
    fclose($file);
 
-   foreach($icd_records as $icd_rec){
-      //echo($icd_rec->order_no . "<br>");
-      $icd_rec->print();
+   require('./includes/db_open.php');
+
+   $tsql = "DELETE FROM CDC_ICD_CM_Dump";
+
+   // Executes the Query
+   $result = sqlsrv_query($conn, $tsql);
+   //$result = TRUE;
+   if($result === FALSE){
+     die( print_r(sqlsrv_errors(), TRUE));
+   } else {
+     //echo "Submission successful!";
+     sqlsrv_free_stmt($result);
    }
+
+   foreach($icd_records as $icd_rec){
+      $icd_rec->writeToDB($conn);
+   }
+
+   echo("Finished processing ICD file: $fileName");
+   sqlsrv_close($conn);
 
 ?>
