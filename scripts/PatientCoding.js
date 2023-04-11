@@ -24,7 +24,7 @@ var PatientCodingController = function ($scope, $http){
 
       //$scope.keyWord = "cancer";
         var strAPI = stuSrcAPI + $scope.keyWord;
-        $scope.keywordsUsed.push($scope.keyWord)
+        $scope.keywordsUsed.push($scope.keyWord)   // add the keyword to the commonly used list
         return $http.get(strAPI)
                 .then(function(response){
                         $scope.codes = '';
@@ -33,5 +33,6 @@ var PatientCodingController = function ($scope, $http){
         }
 
 }
+
     // Register the controller function with the module
-    PatientCodingModule.controller("PatientCodingController", PatientCodingController);
+PatientCodingModule.controller("PatientCodingController", PatientCodingController);

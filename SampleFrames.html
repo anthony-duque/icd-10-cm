@@ -1,17 +1,31 @@
-<html>
-<head>
+<html ng-app="SampleFrameModule">
+<head >
    <script src="./scripts/angular.min.js"></script>
+   <script src="./scripts/SampleFrames.js"></script>
 </head>
-<body ng-app>
+<body ng-controller="SampleFrameController">
+
    <table height="100%" width="100%" border=1 bordercolor=blue>
       <tr>
-         <td colspan=2 height="20%">
-            Patient's Info
+         <td colspan=2 height="20%" id="PatientInfo">
+            Patient's Info {{ 8 - 2 }}
+            <input type="button" ng-click="GetCodes()">
          </td>
       </tr>
       <tr>
-         <td width="50%">Patient's Condition List</td>
-         <td width="50%">ICD Code Lookup</td>
+         <td width="50%" id="LowerLeft">
+            Patient's Condition List
+            {{ codes }}
+         </td>
+         <td width="50%" id="LowerLeft"  valign="top">
+            <table>
+               <tr ng-repeat="code in codes | limitTo : 50">
+                  <td>
+                     {{ code.order_no }}
+                  </td>
+               </tr>
+            </table>
+         </td>
       </tr>
    </table>
 </body>

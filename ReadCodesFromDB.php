@@ -6,7 +6,7 @@
 
    require('./includes/db_open.php');
 
-   $tsql = "SELECT order_no, code, header, short_desc FROM CDC_ICD_CM_Dump";
+   $tsql = "SELECT TOP 100 order_no, code, header, short_desc FROM CDC_ICD_CM_Dump";
 
    $result = sqlsrv_query($conn, $tsql);
    if($result === FALSE OR $result === NULL){
@@ -15,8 +15,14 @@
       //sqlsrv_free_stmt($result);
    }
 
+   $arrayResult = array();
+
    while(($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) != NULL){
-      echo($row['order_no'] . "<br>");
+      //echo($row['order_no'] . "<br>");
+      $arrayResult[] = $row;
    }
+
+   echo json_encode($arrayResult);
+
    require('./includes/db_close.php');
 ?>
