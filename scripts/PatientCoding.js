@@ -9,11 +9,11 @@ var PatientCodingController = function ($scope, $http){
 
    $scope.keywordsUsed = [];
     var patient = {
-        mrn: "1056481663642",
-        firstName : "David",
-        lastName : "Miscavige",
-        birthDate:   "01/23/1965",
-        gender : "M"
+       mrn: "1056481663642",
+       firstName : "David",
+       lastName : "Miscavige",
+       birthDate:   "01/23/1965",
+       gender : "M"
     };
 
     $scope.patient = patient;
