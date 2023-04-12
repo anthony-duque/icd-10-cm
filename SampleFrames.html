@@ -1,6 +1,7 @@
 <html ng-app="SampleFrameModule">
 <head >
    <script src="./scripts/angular.min.js"></script>
+   <script src="./scripts/getCodes.js"></script>
    <script src="./scripts/SampleFrames.js"></script>
 </head>
 <body ng-controller="SampleFrameController">
@@ -14,14 +15,18 @@
       </tr>
       <tr>
          <td width="50%" id="LowerLeft">
-            Patient's Condition List
-            {{ codes }}
+            Patient's Condition List {{ message }}
          </td>
          <td width="50%" id="LowerLeft"  valign="top">
             <table>
-               <tr ng-repeat="code in codes | limitTo : 50">
+               <tr>
                   <td>
-                     {{ code.order_no }}
+                     Search for: <input type="text" ng-model="keyWord">
+                  </td>
+               </tr>
+               <tr ng-repeat="code in icdCodes | filter: keyWord">
+                  <td>
+                     {{ code.code }}
                   </td>
                </tr>
             </table>

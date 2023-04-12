@@ -4,7 +4,8 @@ const apiURL = "http://localhost/icd-10-cm/ReadCodesFromDB.php";
 
 var SampleFrameController = function($scope, $http){
 
-   //$scope.icdCodes
+   $scope.icdCodes = icdCodes;      // icdCodes is defined in getCodes.js
+/*
    $scope.GetCodes = function(){
       return $http.get(apiURL)
                   .then(function(response){
@@ -12,6 +13,7 @@ var SampleFrameController = function($scope, $http){
                      $scope.codes = response.data;
                   });
    }  // GetCodes()
+*/
    $scope.message = "something";
 
 }  // SampleFrameController()
