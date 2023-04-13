@@ -1,0 +1,26 @@
+<table>
+   <thead>
+   <tr>
+      <th>ICD Code</th>
+      <th>Description</th>
+      <th>Diagnosed on</th>
+      <th>Resolve?</th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr ng-repeat="eachCode in PatientCodes">
+      <td>{{ eachCode.code }}</td>
+      <td>{{ eachCode.short_desc }}</td>
+      <td>{{ eachCode.dateDiagnosed }}</td>
+      <td align="center">
+         <input type="checkbox">
+      </td>
+   </tr>
+   <tr>
+      <td colspan="3"></td>
+      <td align="center">
+         <input type="button" value="Resolve"></input>
+      </td>
+   </tr>
+   </tbody>
+</table>
