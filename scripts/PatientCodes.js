@@ -1,5 +1,5 @@
 var patientCodes = [
-      { 'code': "A000",
+      { 'code': "A00",
          "short_desc": "Cholera due to Vibrio cholerae 01, biovar cholerae",
          "dateDiagnosed": "01/26/1990"
       },

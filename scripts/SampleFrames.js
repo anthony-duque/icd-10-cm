@@ -26,3 +26,16 @@ var SampleFrameController = function($scope, $http){
 }  // SampleFrameController()
 
 SampleFrameModule.controller("SampleFrameController", SampleFrameController);
+
+SampleFrameModule.filter("displayICD", function(){
+   return function(code){
+            var retCode = '';
+            if(code.length > 3){
+                  // ex. A0056 -> AOO.56
+               retCode = code.substring(0,3) + '.' + code.substring(3);
+            } else {
+               retCode = code;
+            }
+            return retCode;
+         }  // function(code)
+});
