@@ -68,12 +68,19 @@ CREATE TABLE ICD_DB.dbo.tbl_ICD_Lookup (
 ALTER TABLE ICD_DB.dbo.tbl_ICD_Lookup
 ADD CONSTRAINT PK_tbl_ICD_Lookup_code PRIMARY KEY CLUSTERED (code);
 
+DELETE FROM tbl_ICD_Lookup;
 
-INSERT INTO ICD_DB.dbo.tbl_ICD_Lookup
+INSERT INTO tbl_ICD_Lookup 
 	(order_no, code, short_desc, long_desc)
-SELECT order_no, code, short_desc, long_desc
+SELECT 
+	order_no, 
+	CONCAT(SUBSTRING(code, 1, 3), '.', SUBSTRING(code, 4, 10)),
+	short_desc, 
+	long_desc
 FROM ICD_DB.dbo.CDC_ICD_CM_Dump
 WHERE header = 1;
 
-
+/* 
+SELECT * FROM tbl_ICD_Lookup;
+*/
 END
