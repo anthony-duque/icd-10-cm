@@ -21,22 +21,23 @@
       </tr>
    </thead>
    <tbody>
+      <form action="CreatePatient.php" method="POST">
       <tr>
          <th>MRN:</th>
          <th>
-            <input type="text" placeholder="Enter MRN"></input>
+            <input type="text" placeholder="Enter MRN" name="mrn"></input>
          </th>
       </tr>
       <tr>
          <th>First Name:</th>
          <th>
-            <input type="text" placeholder="Enter First Name"></input>
+            <input type="text" placeholder="Enter First Name" name="firstName"></input>
          </th>
       </tr>
       <tr>
          <th>Last Name:</th>
          <th>
-            <input type="text" placeholder="Enter Last Name"></input>
+            <input type="text" placeholder="Enter Last Name" name="lastName"></input>
          </th>
       </tr>
       <tr>
@@ -49,13 +50,14 @@
       <tr>
          <th>Birthday:</th>
          <th align="left">
-            <input type="date" placeholder="Enter Birthday"></input>
+            <input type="date" placeholder="Enter Birthday" name="birtDate"></input>
          </th>
       </tr>
       <tr>
          <td colspan="2" align="center">
-            <input type="button" value="Create New Patient" />
+            <input type="submit" value="Create Patient" />
          </td>
       </tr>
+      </form>
    </tbody>
 </table>
