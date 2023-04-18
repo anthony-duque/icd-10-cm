@@ -15,15 +15,18 @@ BEGIN
 	};
 	GO;
 
-	CREATE TABLE tblPatient{
-		id 			INT NOT NULL,
-		firstName	VARCHAR(30),
-		lastName	VARCHAR(30),
-		gender		CHAR,
-		birthDate	SMALLDATETIME,
-		mrn			VARCHAR(30),
-		dateCreated	SMALLDATETIME
-	}
+CREATE TABLE ICD_DB.dbo.tblPatient (
+	id int IDENTITY(0,1) NOT NULL,
+	mrn varchar(50) NULL,
+	firstName varchar(50) NULL,
+	lastName varchar(50) NOT NULL,
+	gender char(1) NULL,
+	birthDate smalldatetime NOT NULL,
+	dateCreated smalldatetime DEFAULT GETDATE() NULL
+);
+CREATE CLUSTERED INDEX tblPatient_mrn_IDX ON ICD_DB.dbo.tblPatient (mrn);
+EXEC ICD_DB.sys.sp_addextendedproperty 'MS_Description', N'Date this record was created', 'schema', N'dbo', 'table', N'tblPatient', 'column', N'dateCreated';
+
 	GO;
 
 	CREATE TABLE tblFacilityPatient{
