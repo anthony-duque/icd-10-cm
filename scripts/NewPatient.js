@@ -11,7 +11,7 @@ var NewPatientController = function($scope, $http){
 
    $scope.patient = patient;
 
-   $http.post('Restful.php', JSON.stringify(patient))
+   $http.delete('Restful.php', JSON.stringify(patient))
          .then(function(response) {
                   if (response.data)
                      console.log("Post Data Submitted Successfully!");
