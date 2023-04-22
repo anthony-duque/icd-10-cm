@@ -95,7 +95,7 @@ error_reporting(E_ALL);
 
    fclose($file);
 
-   require('./includes/db_open.php');
+   require('./php/db_open.php');
 
    $tsql = "DELETE FROM CDC_ICD_CM_Dump";
 

@@ -6,7 +6,7 @@
    $birthDate = $_POST["birthDate"];
    $gender = $_POST["gender"];
 
-   require("./includes/db_open.php");
+   require("./php/db_open.php");
 
    $tsql = "INSERT INTO tblPatient " .
             "(mrn, firstName, lastName, gender, birthDate) " .

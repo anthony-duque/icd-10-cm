@@ -4,7 +4,7 @@
    ini_set('display_startup_errors', 1);
    error_reporting(E_ALL);
 
-   require('./includes/db_open.php');
+   require('./php/db_open.php');
 
    $tsql = "SELECT TOP 100 order_no, code, header, short_desc FROM CDC_ICD_CM_Dump";
 
@@ -24,5 +24,5 @@
 
    echo json_encode($arrayResult);
 
-   require('./includes/db_close.php');
+   require('./php/db_close.php');
 ?>

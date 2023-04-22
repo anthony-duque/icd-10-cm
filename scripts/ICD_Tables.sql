@@ -21,16 +21,6 @@ BEGIN
 	EXEC ICD_DB.sys.sp_addextendedproperty 'MS_Description', N'Associates the staff with a facility.', 'schema', N'dbo', 'table', N'tblStaff', 'column', N'facilityCode';
 	EXEC ICD_DB.sys.sp_addextendedproperty 'MS_Description', N'Indicates whether the staff is still working for the facility.', 'schema', N'dbo', 'table', N'tblStaff', 'column', N'active';
 
-	CREATE TABLE ICD_DB.dbo.tblStaffRole (
-		id int IDENTITY(0,1) NOT NULL,
-		roleCode varchar(5) NOT NULL,
-		description varchar(25) NULL,
-		dateCreated smalldatetime DEFAULT GETDATE() NULL
-	);
-	EXEC ICD_DB.sys.sp_addextendedproperty 'MS_Description', N'Date this position was created in the database.', 'schema', N'dbo', 'table', N'tblStaffRole', 'column', N'dateCreated';
-
-
-
 	CREATE TABLE ICD_DB.dbo.tblFacility (
 		id int IDENTITY(0,1) NOT NULL,
 		facilityCode varchar(12) NOT NULL,
@@ -66,8 +56,13 @@ BEGIN
 	}
 	GO;
 
-	INSERT INTO ICD_DB.dbo.tblStaff
-		()
+	CREATE TABLE ICD_DB.dbo.tblStaffRole (
+		id int IDENTITY(0,1) NOT NULL,
+		roleCode varchar(5) NOT NULL,
+		description varchar(25) NULL,
+		dateCreated smalldatetime DEFAULT GETDATE() NULL
+	);
+	EXEC ICD_DB.sys.sp_addextendedproperty 'MS_Description', N'Date this position was created in the database.', 'schema', N'dbo', 'table', N'tblStaffRole', 'column', N'dateCreated';
 
 
 	ALTER ICD_DB.dbo.tblFaciltyPatient 
