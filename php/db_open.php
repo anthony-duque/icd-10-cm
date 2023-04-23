@@ -1,37 +1,41 @@
 <?php
 
-$serverName = "localhost";
-$connectOptions = array(
-    "database"  => "ICD_DB",
-    "uid"       => "SA",
-    "pwd"       => "Al@d5150"
-);
+   ini_set('display_errors', 1);
+   ini_set('display_startup_errors', 1);
+   error_reporting(E_ALL);
 
-function exceptionHandler($exception){
-  echo "<h1>Failure</h1>";
-  echo "Uncaught exception: ", $exception->getMessage();
-  // echo "<h1>PHP info for troubleshooting.</h1>"
-}
+   $serverName = "localhost";
+   $connectOptions = array(
+       "database"  => "ICD_DB",
+       "uid"       => "SA",
+       "pwd"       => "Al@d5150"
+   );
 
-set_exception_handler('exceptionHandler');
+   function exceptionHandler($exception){
+     echo "<h1>Failure</h1>";
+     echo "Uncaught exception: ", $exception->getMessage();
+     // echo "<h1>PHP info for troubleshooting.</h1>"
+   }
 
-// Establishes the connection.
+   set_exception_handler('exceptionHandler');
 
-$conn = sqlsrv_connect($serverName, $connectOptions);
-if ($conn == false){
-  die(formatErrors(sqlsrv_errors()));
-}
+   // Establishes the connection.
 
-function formatErrors($errors)
-{
-    // Display errors
-    echo "<h1>SQL Error:</h1>";
-    echo "Error information: <br/>";
-    foreach ($errors as $error) {
-        echo "SQLSTATE: ". $error['SQLSTATE'] . "<br/>";
-        echo "Code: ". $error['code'] . "<br/>";
-        echo "Message: ". $error['message'] . "<br/>";
-    }
-}
+   $conn = sqlsrv_connect($serverName, $connectOptions);
+   if ($conn == false){
+     die(formatErrors(sqlsrv_errors()));
+   }
+
+   function formatErrors($errors)
+   {
+       // Display errors
+       echo "<h1>SQL Error:</h1>";
+       echo "Error information: <br/>";
+       foreach ($errors as $error) {
+           echo "SQLSTATE: ". $error['SQLSTATE'] . "<br/>";
+           echo "Code: ". $error['code'] . "<br/>";
+           echo "Message: ". $error['message'] . "<br/>";
+       }
+   }
 
 ?>

@@ -11,11 +11,11 @@ var NewPatientController = function($scope, $http){
    };
 
    $scope.SendData = function(patient){
-      $http.post('Restful.php', JSON.stringify(patient))
+      $http.post('./php/Restful.php', JSON.stringify(patient))
             .then(function(response) {
                      if (response.data){
                         console.log("Post Data Submitted Successfully!");
-//                        console.log(response.data);
+                        console.log(response.data);
                      }
                   },
                   function(response) {
