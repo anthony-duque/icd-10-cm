@@ -2,28 +2,30 @@ var NewPatientModule = angular.module("NewPatientModule", []);
 
 var NewPatientController = function($scope, $http){
 
-   var patient = {
+   $scope.patient = {
       firstName : 'Enter First Name',
       lastName : 'Enter Last Name',
       gender : '',
-      birthDate : ''
+      birthDate : '',
+      mrn : 'Enter MRN'
    };
 
-   $scope.patient = patient;
-
-   $http.delete('Restful.php', JSON.stringify(patient))
-         .then(function(response) {
-                  if (response.data)
-                     console.log("Post Data Submitted Successfully!");
-                     console.log(response.data);
-               },
-               function(response) {
-                  console.log("Service does not Exists");
-                  console.log(response.status);
-                  console.log(response.statusText);
-                  console.log(response.headers());
-               }
-         );   // .then()
-}
+   $scope.SendData = function(patient){
+      $http.post('Restful.php', JSON.stringify(patient))
+            .then(function(response) {
+                     if (response.data){
+                        console.log("Post Data Submitted Successfully!");
+//                        console.log(response.data);
+                     }
+                  },
+                  function(response) {
+                     console.log("Service does not Exists");
+                     console.log(response.status);
+                     console.log(response.statusText);
+                     console.log(response.headers());
+                  }
+            );   // .then()
+   }     // SendData()
+}  // NewPatientController()
 
 NewPatientModule.controller("NewPatientController", NewPatientController);

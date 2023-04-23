@@ -1,10 +1,10 @@
-<html>
+<html ng-app="NewPatientModule">
 <head>
    <title>Restful Service Experiment</title>
    <script src="../scripts/angular.js"></script>
    <script src="../scripts/NewPatient.js"></script>
 </head>
-<body ng-app="NewPatientModule">
+<body ng-controller="NewPatientController">
 <table align="center" border='0'>
    <thead>
       <tr>
@@ -13,7 +13,7 @@
          </th>
       </tr>
    </thead>
-   <tbody ng-controller="NewPatientController">
+   <tbody>
       <tr>
          <th>MRN:</th>
          <th>
@@ -42,19 +42,19 @@
       <tr>
          <th>Birthday:</th>
          <th align="left">
-            <input type="date" placeholder="Enter Birthday" name="birthDate" ng-model="birthDate"></input>
+            <input type="date" placeholder="Enter Birthday" name="birthDate" ng-model="patient.birthDate"></input>
          </th>
       </tr>
       <tr>
          <td colspan="2" align="center">
-            <input type="submit" value="Create Patient" ng-click="SubmitData"/>
+            <input type="button" value="Create Patient" ng-click="SendData(patient);"/>
          </td>
       </tr>
    </tbody>
 </table>
 
 <tt>
-mrn : {{ patient.mrn }}
+mrn : {{ patient.mrn }} <br/>
 firstName : {{ patient.firstName }}  <br/>
 lastName : {{ patient.lastName }}  <br/>
 gender : {{ patient.gender }}  <br/>

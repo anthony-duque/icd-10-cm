@@ -7,6 +7,9 @@
 
       case 'POST':
          $task = "Create new record";
+         $json = file_get_contents('php://input');
+         $data = json_decode($json);
+         var_dump($data);
          break;
 
       case "PUT":
@@ -14,11 +17,11 @@
          break;
 
       case "GET":
-         $task = "Get record\/s";
+         var_dump($_GET); //['data'];
          break;
 
       case "DELETE":
-         $task = "Purge record\/s";
+         $task = "Purge record/s";
          break;
 
       default:
@@ -26,5 +29,4 @@
          break;
    }
 
-   echo $task;
 ?>
