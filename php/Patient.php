@@ -9,25 +9,27 @@
       case 'POST':
          $json = file_get_contents('php://input');
          $data = json_decode($json);
-         ProcessPOST($data);
-         //var_dump($data);
+         //ProcessPOST($data);
+         var_dump($data);
          //echo $data->mrn;
          break;
 
-      case "PUT":
-         $task = "Update a record.";
+      case "PUT":    // Could read from input and query string
+      //         $qString = $_GET["id"];
+      //         echo "PUT = " . $qString;
+         $json = file_get_contents('php://input');
+         $data = json_decode($json);
+         var_dump($data);
          break;
 
       case "GET":
-         // $qString = $_SERVER["QUERY_STRING"];
          $qString = $_GET["id"];
-         //$data = json_decode($json);
-         //var_dump($data);
-         echo $qString;
+         echo "GET = " . $qString;
          break;
 
       case "DELETE":
-         $task = "Purge record/s";
+         $qString = $_GET["id"];
+         echo "DELETE = " . $qString;
          break;
 
       default:
