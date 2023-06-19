@@ -17,7 +17,6 @@
                      "CONVERT(SMALLDATETIME, '$birthDate'))";
    // Executes the Query
 
-
    $result = sqlsrv_query($conn, $tsql);
    //$result = TRUE;
    if($result === FALSE){

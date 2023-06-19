@@ -11,7 +11,7 @@ var NewPatientController = function($scope, $http){
    };
 
    $scope.SendData = function(patient){
-      $http.post('./php/Patient.php?id=100', JSON.stringify(patient))
+      $http.post('./php/Patient.php', JSON.stringify(patient))
             .then(function(response) {
                      if (response.data){
                         console.log("Post Data Submitted Successfully!");
