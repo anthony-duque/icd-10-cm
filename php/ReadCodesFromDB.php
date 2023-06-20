@@ -4,14 +4,17 @@
    ini_set('display_startup_errors', 1);
    error_reporting(E_ALL);
 
-   require('./php/db_open.php');
+   require('db_open.php');
 
-   $tsql = "SELECT TOP 100 order_no, code, header, short_desc FROM CDC_ICD_CM_Dump";
+   $tsql = "SELECT TOP 200 code, short_desc FROM tbl_ICD_Lookup";
 
    $result = sqlsrv_query($conn, $tsql);
    if($result === FALSE OR $result === NULL){
+      echo "failed";
+      print_r(sqlsrv_errors();
       die(print_r(sqlsrv_errors(), TRUE));
    } else {
+      echo "succeed";
       //sqlsrv_free_stmt($result);
    }
 

@@ -1,0 +1,7 @@
+
+1)  Download the ICD codes from:
+
+   https://www.cms.gov/medicare/coding/icd10
+
+   Choose the year.  It will be a zip file with the codes and
+   notes that specifies the file structure of the text file.

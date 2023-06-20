@@ -30,7 +30,7 @@
          $this->short_desc = str_replace("'", "''", $this->short_desc);
          $this->long_desc = str_replace("'", "''", $this->long_desc);
 
-         echo("Processing $this->code<br>");
+//         echo("Processing $this->code<br>");
 //         $tsql = "INSERT INTO CDC_ICD_CM_Dump (order_no, code, header, short_desc, long_desc) " .
          $tsql = "INSERT INTO CDC_ICD_CM_Dump " .
                   "VALUES ($this->order_no, '$this->code', $this->header, '$this->short_desc', '$this->long_desc')";
@@ -49,10 +49,11 @@
       }
    }  // ICD_Record{}
 
-   $fileName = './files/icd10cm-order-2023.txt';
+   $fileName = '/var/www/html/icd-10-cm/files/icd10cm-order-2023.txt';
 
    $file = fopen($fileName, 'r');
-   echo("Processing $fileName");
+   $currDate = date('d-m-y h:i:s');
+   echo("Processing $fileName ($currDate)");
 
    $icd_records = array();
 
@@ -96,7 +97,7 @@
 
    fclose($file);
 
-   require('./php/db_open.php');
+   require('db_open.php');
 
    $tsql = "DELETE FROM CDC_ICD_CM_Dump";
 
@@ -113,8 +114,9 @@
    foreach($icd_records as $icd_rec){
       $icd_rec->writeToDB($conn);
    }
-
-   echo("Finished processing ICD file: $fileName");
+   echo '<br>';
+   $currDate = date('d-m-y h:i:s');
+   echo("Finished processing ICD file: $fileName ($currDate)");
    sqlsrv_close($conn);
 
 ?>

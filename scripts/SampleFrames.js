@@ -9,19 +9,20 @@ var SampleFrameController = function($scope, $http){
                                     //    angular factory eventually
 
    $scope.PatientCodes = patientCodes;
+   $scope.dataStillLoading = true;
 
-/*
    $scope.GetCodes = function(){
       return $http.get(apiURL)
                   .then(function(response){
-                     $scope.codes = '';
-                     $scope.codes = response.data;
+                     $scope.icdCodes = '';
+                     $scope.icdCodes = response.data;
+                  })
+                  .finally(function(){
+                     $scope.dataStillLoading = false;
                   });
    }  // GetCodes()
-*/
 
-
-   $scope.message = "something";
+   //$scope.GetCodes();
 
 }  // SampleFrameController()
 

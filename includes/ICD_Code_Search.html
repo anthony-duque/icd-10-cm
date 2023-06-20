@@ -1,12 +1,20 @@
 <table>
    <tr>
-      <td>
+      <td colspan="2">
          Search for: <input type="text" ng-model="keyWord">
       </td>
    </tr>
+   <!-- tr>
+      <td>
+         Reading codes from database.  Please wait...
+      </td>
+   </tr -->
    <tr ng-repeat="eachCode in icdCodes | filter: keyWord">
       <td>
          {{ eachCode.code }}
+      </td>
+      <td>
+         {{ eachCode.desc }}
       </td>
    </tr>
 </table>

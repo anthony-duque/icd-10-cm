@@ -1,0 +1,37 @@
+<form action="./php/Read_ICD_from_CDC.php" method='POST'>
+   <table width='50%' align='center'>
+   <thead>
+      <tr>
+         <th colspan=2>Load the ICD code file to the database</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td colspan=2 height="50">
+            &nbsp;
+         </td>
+      </tr>
+      <tr>
+         <td colspan=2>
+            <ol type=1>
+               <li>Download the zip file from website: https://www.cms.gov/medicare/coding/icd10</li>
+               <li>Extract the zip file to a desired folder</li>
+               <li>The text file: <b>cd<i>xx</i>cm-codes-<i>yyyy</i>.txt</b> contains the CM codes</li>
+               <li>The pdf file: <b>icd<i>xx</i>OrderFiles<i>yyyy</i>.pdf</b> contains the record structure of the text file</li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td align='right'>ICD Code text file:</td>
+         <td align='left'>
+            <input type='file' accept="text/plain" id='icdFile' name='icdFile' \>
+         </td>
+      </tr>
+      <tr>
+         <td colspan=2 align='center'>
+            <input type='submit'>
+         </td>
+      </tr>
+   </tbody>
+   </table>
+</form>
