@@ -25,9 +25,11 @@
          break;
 
       case "GET":
-         echo 'GET';
-         //$qString = $_GET["id"];
-         echo "DELETE = " . $qString;
+//         echo 'GET';
+//         $qString = $_GET["id"];
+//         echo "DELETE = " . $qString;
+         $patientList = ProcessGET();
+         echo json_encode($patientList);
          break;
 
       case "DELETE":
@@ -40,6 +42,36 @@
          $task = "Task unknown";
          break;
    }
+
+   function ProcessGET(){
+
+      require('db_open.php');
+
+      $tsql = "SELECT mrn, firstName, lastName, gender, FORMAT(birthdate, 'yyyy-MM-dd') AS birthDate " .
+               "FROM tblPatient";
+      //echo $tsql;
+
+      $result = sqlsrv_query($conn, $tsql);
+
+      if($result === FALSE OR $result === NULL){
+        die( print_r(sqlsrv_errors(), TRUE));
+      } else {
+         // echo "Patient fetch successful!";
+      }
+
+      $arrayResult = array();
+
+      while(($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) != NULL){
+         //echo($row['order_no'] . "<br>");
+         $arrayResult[] = $row;
+      }
+
+      sqlsrv_free_stmt($result);
+      sqlsrv_close($conn);
+
+      return $arrayResult;
+
+   }     // ProcessGET()
 
 
       //  Process a POSTed data

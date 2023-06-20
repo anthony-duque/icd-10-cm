@@ -3,8 +3,7 @@
    <head>
       <meta charset="utf-8">
       <title>Patient Search Page</title>
-      <script type="text/javascript" src="./scripts/angular.min.js"></script>
-      <script type="text/javascript" src="./scripts/PatientList.js"></script>
+      <script type="text/javascript" src="./scripts/angular.js"></script>
       <script type="text/javascript" src="./scripts/PatientSearch.js"></script>
       <link rel="stylesheet" href="./styles/PatientCoding.css">
    </head>
@@ -63,7 +62,7 @@
             <td>{{ patient.mrn }}</td>
             <td>{{ patient.firstName }}</td>
             <td>{{ patient.lastName }}</td>
-            <td>{{ patient.birthDate | date: "MMMM dd, yyyy" }}</td>
+            <td>{{ patient.birthDate }}</td>
             <td>{{ patient.gender }}</td>
          </tr>
          </tbody>

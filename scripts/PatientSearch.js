@@ -4,7 +4,7 @@ var PatientSearch = angular.module("patientSearchModule", []);
 var patientSearchCtrlr = function($scope, $http){
 
    $scope.patientCount = 15;
-   $scope.patientList = patientList;
+   //$scope.patientList = patientList;
    $scope.sortField = "+MRN";
 
    $scope.SortPatients = function(sortBy){
@@ -33,8 +33,7 @@ var patientSearchCtrlr = function($scope, $http){
             .then(function(response) {
                      if (response.data){
                         console.log("Patient Records fetched successfully!");
-                        // alert("Patient Record created!");
-                        // window.location.href = 'PatientSearch.html';
+                        $scope.patientList = response.data;
                         console.log(response.data);
                      }
                   },

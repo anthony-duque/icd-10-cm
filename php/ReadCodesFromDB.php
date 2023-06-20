@@ -24,5 +24,7 @@
 
    echo json_encode($arrayResult);
 
-   require('./php/db_close.php');
+   sqlsrv_free_stmt($result)
+   sqlsrv_close($conn);
+   //require('./php/db_close.php');
 ?>
