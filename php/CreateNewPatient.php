@@ -20,10 +20,11 @@
    $result = sqlsrv_query($conn, $tsql);
    //$result = TRUE;
    if($result === FALSE){
+
      die( print_r(sqlsrv_errors(), TRUE));
+
    } else {
 
-//   echo $tsql;
       echo "Submission successful!";
      sqlsrv_free_stmt($result);
      sqlsrv_close($conn);

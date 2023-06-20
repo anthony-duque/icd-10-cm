@@ -26,7 +26,7 @@
 
       case "GET":
          echo 'GET';
-         $qString = $_GET["id"];
+         //$qString = $_GET["id"];
          echo "DELETE = " . $qString;
          break;
 

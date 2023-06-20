@@ -14,8 +14,10 @@ var NewPatientController = function($scope, $http){
       $http.post('./php/Patient.php', JSON.stringify(patient))
             .then(function(response) {
                      if (response.data){
-                        console.log("Post Data Submitted Successfully!");
-                        console.log(response.data);
+                        console.log("Patient Record created successfully!");
+                        alert("Patient Record created!");
+                        window.location.href = 'PatientSearch.html';
+                        //console.log(response.data);
                      }
                   },
                   function(response) {
