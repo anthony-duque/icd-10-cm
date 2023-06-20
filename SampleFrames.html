@@ -1,11 +1,24 @@
 <html ng-app="SampleFrameModule">
 <head >
-   <script src="./scripts/angular.js"></script>
+   <script src="./scripts/angular.min.js"></script>
    <script src="./scripts/getCodes.js"></script>   <!-- Where icdCodes value comes from -->
    <script src="./scripts/PatientCodes.js"></script> <!-- Data for PatientCurrentCodes.html -->
    <script src="./scripts/SampleFrames.js"></script>
+   <link rel="stylesheet" href="./styles/PatientCoding.css"/>
 </head>
 <body ng-controller="SampleFrameController">
+   <table align=center>
+      <tr>
+         <td align="center">
+              <img src="./images/logo.svg" id="faciltyLogo">
+         </td>
+      </tr>
+      <tr>
+         <td id="facilityName" align="center">
+              <div name="facilityName">Simi Healthcare Center</div>
+         </td>
+      </tr>
+   </table>
 
    <table height="100%" width="100%" border=1 bordercolor=blue>
       <tr>

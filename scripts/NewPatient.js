@@ -3,11 +3,11 @@ var NewPatientModule = angular.module("NewPatientModule", []);
 var NewPatientController = function($scope, $http){
 
    $scope.patient = {
-      firstName : 'Enter First Name',
-      lastName : 'Enter Last Name',
+      firstName : '',
+      lastName : '',
       gender : '',
       birthDate : '',
-      mrn : 'Enter MRN'
+      mrn : ''
    };
 
    $scope.SendData = function(patient){

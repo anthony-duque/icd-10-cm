@@ -11,6 +11,17 @@
       <table align="center">
          <thead>
             <tr>
+                <td align="center" colspan="5">
+                    <img src="./images/logo.svg" id="faciltyLogo">
+                </td>
+            </tr>
+            <tr>
+                <td id="facilityName" align="center" colspan="5">
+                    <div name="facilityName">Simi Healthcare Center</div>
+                </td>
+
+            </tr>
+            <tr>
                <th align="center" style="color:blue" colspan="5">
                   Patient Search
                </th>
@@ -32,6 +43,11 @@
                </td>
                <td>
                   <input type="text" ng-model="patient.gender" placeholder="Gender"></input>
+               </td>
+            </tr>
+            <tr>
+               <td colspan=5 align=center>
+                  <input type="button" value="Enter New Patient" onclick="window.location.href='NewPatient.html'"></input>
                </td>
             </tr>
          </tbody>
@@ -67,6 +83,5 @@
          </tr>
          </tbody>
       </table>
-      <input type="button" value="Enter New Patient" onclick="window.location.href='NewPatient.html'"></input>
    </body>
 </html>
