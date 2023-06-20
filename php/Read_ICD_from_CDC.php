@@ -34,9 +34,7 @@
 //         $tsql = "INSERT INTO CDC_ICD_CM_Dump (order_no, code, header, short_desc, long_desc) " .
          $tsql = "INSERT INTO CDC_ICD_CM_Dump " .
                   "VALUES ($this->order_no, '$this->code', $this->header, '$this->short_desc', '$this->long_desc')";
-         //echo("$tsql <br>");
 
-         // Executes the Query
          $result = sqlsrv_query($dbConn, $tsql);
          //$result = TRUE;
          if($result === FALSE){
@@ -49,11 +47,14 @@
       }
    }  // ICD_Record{}
 
-   $fileName = '/var/www/html/icd-10-cm/files/icd10cm-order-2023.txt';
+  $fileName = '/var/www/html/icd-10-cm/files/icd10cm-order-2023.txt';
+//   $fileName = $_POST["icdFile"];
 
    $file = fopen($fileName, 'r');
    $currDate = date('d-m-y h:i:s');
-   echo("Processing $fileName ($currDate)");
+
+   echo("Processing $fileName ($currDate) <br>");
+   echo "<br>It may take a few minutes...Please wait...<br>";
 
    $icd_records = array();
 
